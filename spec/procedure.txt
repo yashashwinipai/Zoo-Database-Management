@@ -1,0 +1,6 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `display`(IN `v.v_fname` VARCHAR(30), IN `v.v_lname` VARCHAR(30), IN `a.animal_name` VARCHAR(50), IN `c.treatment` VARCHAR(30), IN `c.type_of_ailment` VARCHAR(30))
+SELECT v.v_fname,v.v_lname,a.animal_name,c.treatment,c.type_of_ailment
+FROM vet v INNER JOIN clinic c JOIN animals a
+WHERE v.vet_id=c.vet_id and c.animal_no=a.animal_no$$
+DELIMITER ;
